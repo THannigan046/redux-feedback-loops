@@ -14,7 +14,7 @@ function Supported() {
             type: 'ADD_SUPPORTED',
             payload: supportedToAdd
         })
-        nextPage()
+        //nextPage()
     }
     const nextPage = () => {
         if (supported === '' || supported < 0 || supported > 5) {
@@ -30,6 +30,9 @@ function Supported() {
             supported: evt.target.value
         })
     }
+    const prevPage = () => {
+        history.push('/understanding')
+    }
     return (
         <>
             <h3>page 3 of 4</h3>
@@ -43,6 +46,7 @@ function Supported() {
                 />
 
             </form>
+            <button onClick={prevPage}>Prev</button>
             <button onClick={nextPage}>Next</button>
         </>
     )

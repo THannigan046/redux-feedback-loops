@@ -24,6 +24,10 @@ function Comments(){
         nextPage()
     }
 
+    const prevPage = () => {
+        history.push('/supported')
+    }
+
     return(
         <>
         <h3>page 4 of 4</h3>
@@ -37,6 +41,7 @@ function Comments(){
                 />
 
             </form>
+            <button onClick={prevPage}>Prev</button>
             <button onClick={nextPage}>Next</button>
         
         

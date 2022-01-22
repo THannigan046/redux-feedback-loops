@@ -18,6 +18,10 @@ function Understanding() {
         
     }
 
+    const prevPage = () => {
+        history.push('/')
+    }
+
     const handleUnderstandingChange = (evt) => {
         setUnderstandingToAdd({
             understanding: evt.target.value
@@ -29,7 +33,7 @@ function Understanding() {
             type: 'ADD_UNDERSTANDING',
             payload: understandingToAdd
         })
-        nextPage()
+        //nextPage()
     }
 
     return (
@@ -45,6 +49,7 @@ function Understanding() {
                 value={understandingToAdd.understanding}
             />
             </form>
+            <button onClick={prevPage}>Prev</button>
             <button onClick={nextPage}>Next</button>
         </>
     )

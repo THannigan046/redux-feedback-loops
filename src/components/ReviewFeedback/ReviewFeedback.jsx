@@ -9,6 +9,10 @@ import axios from 'axios'
 function ReviewFeedback() {
     const history = useHistory();
     const store = useSelector(store => store)
+
+    const prevPage = () => {
+        history.push('/comments')
+    }
     const submitFeedback = () => {
         const postObj = {
             feeling: Number(store.feelingReducer.feeling),
@@ -41,7 +45,7 @@ function ReviewFeedback() {
                 <li>comments: {store.commentReducer.comments}</li>
             </ul>
 
-
+            <button onClick={prevPage}>prev</button>
             <button onClick={submitFeedback}>submit</button>
         </>
     )

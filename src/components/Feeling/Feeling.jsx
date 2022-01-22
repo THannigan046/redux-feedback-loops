@@ -29,7 +29,7 @@ function Feeling() {
             type: 'ADD_FEELING',
             payload: feelingToAdd
         })
-        nextPage()
+        //nextPage()
         
     }
     return (

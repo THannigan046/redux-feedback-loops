@@ -21,6 +21,7 @@ function Comments(){
             type: 'ADD_COMMENT', 
             payload: commentToAdd
         })
+        nextPage()
     }
 
     return(

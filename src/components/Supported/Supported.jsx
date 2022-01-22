@@ -14,14 +14,16 @@ function Supported() {
             type: 'ADD_SUPPORTED',
             payload: supportedToAdd
         })
+        nextPage()
     }
     const nextPage = () => {
-        if (supported === '') {
+        if (supported === '' || supported < 0 || supported > 5) {
             alert('please enter a valid input')
         }
         else {
             history.push('/comments')
         }
+        
     }
     const handleSupportedChange = (evt) => {
         setSupportedToAdd({
@@ -34,7 +36,8 @@ function Supported() {
             <h2>How supported did you feel today?</h2>
             <form onSubmit={addSupported}>
                 <input
-                    type='text'
+                    type='number'
+                    placeholder='scale of 0 to 5'
                     value={supportedToAdd.supported}
                     onChange={handleSupportedChange}
                 />

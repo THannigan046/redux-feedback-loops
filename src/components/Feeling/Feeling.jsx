@@ -9,7 +9,8 @@ function Feeling() {
     const history = useHistory() 
 
     const nextPage = () => {
-        if (feeling === '' ){
+        //could've done min/max, but that made the input shrink
+        if (feeling === '' || feeling < 0 || feeling > 5){
             alert('please enter a valid input')
         }
         else {
@@ -28,6 +29,7 @@ function Feeling() {
             type: 'ADD_FEELING',
             payload: feelingToAdd
         })
+        nextPage()
         
     }
     return (
@@ -36,7 +38,7 @@ function Feeling() {
         <h2>How are you feeling today?</h2>
         <form onSubmit={handleSubmit}>
         <input
-        type='text'
+        type='number'
         placeholder='scale of 0 to 5'
         onChange={handleFeelingChange}
         value={feelingToAdd.feeling}

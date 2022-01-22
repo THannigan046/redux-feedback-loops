@@ -9,7 +9,7 @@ function Understanding() {
     const history = useHistory()
     const [understandingToAdd, setUnderstandingToAdd] = useState({understanding: ''})
     const nextPage = () => {
-        if (understanding === ''){
+        if (understanding === '' || understanding < 0 || understanding > 5){
             alert('please enter a valid input')
         }
         else {
@@ -29,6 +29,7 @@ function Understanding() {
             type: 'ADD_UNDERSTANDING',
             payload: understandingToAdd
         })
+        nextPage()
     }
 
     return (
@@ -38,7 +39,7 @@ function Understanding() {
             <h2>How well are you understanding the content?</h2>
             <form onSubmit={handleSubmit}>
             <input
-                type='text'
+                type='number'
                 placeholder='scale of 0 to 5'
                 onChange={handleUnderstandingChange}
                 value={understandingToAdd.understanding}

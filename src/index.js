@@ -11,6 +11,8 @@ import { Provider } from 'react-redux';
 const feedbackReducer = (state = [], action) =>{
     switch (action.type) {
         case 'ADD_FEEDBACK':
+        console.log('data is', action.data);
+        
         return action.payload
     }
     return state;

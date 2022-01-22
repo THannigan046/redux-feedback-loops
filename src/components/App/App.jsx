@@ -12,21 +12,29 @@ function App() {
 
   return (
     <>
-    <Router>
-      <div className='App'>
-        <header className='App-header'>
-          <h1 className='App-title'>Feedback!</h1>
-          <h4>Don't forget it!</h4>
-        </header>
-      <Route exact path="/">
-        <Feeling></Feeling>
-      </Route>
-      <Route exact path="/understanding">
-          <Understanding></Understanding>
-      </Route>
-
-      </div>
-    </Router>
+      <Router>
+        <div className='App'>
+          <header className='App-header'>
+            <h1 className='App-title'>Feedback!</h1>
+            <h4>Don't forget it!</h4>
+          </header>
+          <Route exact path="/">
+            <Feeling/>
+          </Route>
+          <Route exact path="/understanding">
+            <Understanding/>
+          </Route>
+          <Route exact path="/supported">
+          <Supported/>
+          </Route>
+          <Route exact path="/comments">
+          <Comments/>
+          </Route>
+          <Route exact path="/thanks">
+          <Thanks/>
+          </Route>
+        </div>
+      </Router>
     </>
   );
 }

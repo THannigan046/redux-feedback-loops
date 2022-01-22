@@ -30,6 +30,9 @@ function App() {
           <Route exact path="/comments">
           <Comments/>
           </Route>
+          <Route exact path="/reviewFeedback">
+          <ReviewFeedback/>
+          </Route>
           <Route exact path="/thanks">
           <Thanks/>
           </Route>

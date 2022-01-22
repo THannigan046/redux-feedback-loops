@@ -19,7 +19,7 @@ npm run client
 
 ### ADD NEW FEEDBACK
 
-> NOTE: As a baseline requirement, you must use Redux to store your data across views.
+> NOTE: As a baseline requirement, you must use Redux to store your data across views. 
 
 Create a multi-part form that allows users to leave feedback for today. 
 There will be 4 views for the form parts.
@@ -52,7 +52,7 @@ The last step of the process will allow the user to review their feedback. Users
 
 The `Review` step needs to have a submit button which will be clicked on to actually submit the completed feedback to the server.
 
-When the submit button is clicked, save the submission in the database. The user should see a submission success page. They can then click the button to take a new survey, which needs to reset all the data and go back to the first step.
+When the submit button is clicked, save the submission in the database. The user should see a submission success page. They can then click the button to take a new survey, which needs to reset all the data and go back to the first step. 
 
 ![understanding](wireframes/page-five.png)
 

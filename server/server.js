@@ -9,11 +9,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-app.post('/', (req, res) => {
+app.post('/feedback', (req, res) => {
     let feedback = req.body;
     console.log('adding feedback', req.body);
 
-    let queryText = `INSERT INTO feedback ("feeling", "understanding", "support", "comments")
+    let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
     VALUES ($1, $2, $3, $4)
     `;
     pool.query(queryText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comments])

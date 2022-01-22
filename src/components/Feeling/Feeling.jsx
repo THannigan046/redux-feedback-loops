@@ -4,21 +4,31 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 function Feeling() {
     const dispatch = useDispatch();
-    const feedback = useSelector(store => store.feedbackReducer)
-    const [feelingInput, setFeelingInput] = useState('')
+    const feeling = useSelector(store => store.feelingReducer)
+    const [feelingToAdd, setFeelingToAdd] = useState({feeling: ''})
     const history = useHistory() 
 
     const nextPage = () => {
-        history.push('/understanding')
+        if (feeling === '' ){
+            alert('please enter a valid input')
+        }
+        else {
+            history.push('/understanding')
+        }
     }
 
-    const handleSubmit = () => {
-        dispatch({
-            type: 'ADD_FEEDBACK',
-            data: {
-                feeling: feelingInput
-            }
+    const handleFeelingChange = (evt) => {
+        setFeelingToAdd({ 
+            feeling: evt.target.value
         })
+    }
+    const handleSubmit = (evt) => {
+        evt.preventDefault()
+        dispatch({
+            type: 'ADD_FEELING',
+            payload: feelingToAdd
+        })
+        
     }
     return (
         <>
@@ -27,8 +37,9 @@ function Feeling() {
         <form onSubmit={handleSubmit}>
         <input
         type='text'
-        onChange={event => setFeelingInput(event.target.value)}
-        value={feelingInput}
+        placeholder='scale of 0 to 5'
+        onChange={handleFeelingChange}
+        value={feelingToAdd.feeling}
         />
 
         </form>

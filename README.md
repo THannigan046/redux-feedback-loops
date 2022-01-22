@@ -12,16 +12,17 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 
 [x] set up reducer
 [x] set up post route 
-[] make components (5 total)
-    [] feeling
-    [] understanding
-    [] supported
-    [] comments
-    [] thanks!
-[] next button for each component(history.push(nextOne))
-[] review feedback component (grab input values and display)
-[] submit button (axios post)
-[] new survey button (history.push(/))
+[x] make components (6 total)
+    [x] feeling
+    [x] understanding
+    [x] supported
+    [x] comments
+    [x] review (grab input values and display)
+    [x] thanks!
+[x] next button for each component(history.push(nextOne))
+[x] review feedback component (grab input values and display)
+[x] submit button (axios post)
+[x] new survey button (history.push(/))
 
 
 

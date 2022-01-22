@@ -3,14 +3,24 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
 function Comments(){
-    let [commentsInput, setCommentsInput] = useState('')
-    const feedback = useSelector(store => store.feedbackReducer)
+    const dispatch = useDispatch();
+    let [commentToAdd, setCommentToAdd] = useState({ comments: '' })
     const history = useHistory()
     const nextPage = () => {
-        history.push('/thanks')
+        history.push('/reviewFeedback')
     }
-    const addComments = () => {
+    const handleCommentChange = (evt) => {
+        setCommentToAdd({
+            comments: evt.target.value
+        })
+    }
 
+    const addComments = (evt) => {
+        evt.preventDefault()
+        dispatch({
+            type: 'ADD_COMMENT', 
+            payload: commentToAdd
+        })
     }
 
     return(
@@ -20,8 +30,9 @@ function Comments(){
             <form onSubmit={addComments}>
                 <input
                     type='text'
-                    value={commentsInput}
-                    onChange={event => setCommentsInput(event.target.value)}
+                    
+                    value={commentToAdd.comments}
+                    onChange={handleCommentChange}
                 />
 
             </form>

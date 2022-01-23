@@ -9,7 +9,7 @@ function Understanding() {
     const history = useHistory()
     const [understandingToAdd, setUnderstandingToAdd] = useState({understanding: ''})
     const nextPage = () => {
-        if (understanding === '' || understanding < 0 || understanding > 5){
+        if (understanding.understanding === '' || understanding.understanding < 0 || understanding.understanding > 5 || understanding.understanding === null){
             alert('please enter a valid input')
         }
         else {

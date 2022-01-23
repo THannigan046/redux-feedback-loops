@@ -2,7 +2,10 @@ import React from 'react';
 import {useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { Button } from '@mui/material';
+import { ArrowForward } from '@mui/icons-material';
 function Feeling() {
+
     const dispatch = useDispatch();
     const feeling = useSelector(store => store.feelingReducer)
     const [feelingToAdd, setFeelingToAdd] = useState({feeling: ''})
@@ -10,7 +13,7 @@ function Feeling() {
 
     const nextPage = () => {
         //could've done min/max, but that made the input shrink
-        if (feeling === '' || feeling < 0 || feeling > 5){
+        if (feeling.feeling === '' || feeling.feeling < 0 || feeling.feeling > 5 || feeling.feeling === null){
             alert('please enter a valid input')
         }
         else {
@@ -29,6 +32,7 @@ function Feeling() {
             type: 'ADD_FEELING',
             payload: feelingToAdd
         })
+        
         //nextPage()
         
     }
@@ -45,7 +49,8 @@ function Feeling() {
         />
 
         </form>
-        <button onClick={nextPage}>Next</button>
+        
+        <Button endIcon={<ArrowForward/>} onClick={nextPage}>Next</Button>
         </>
     )
 }

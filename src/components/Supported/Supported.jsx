@@ -17,7 +17,7 @@ function Supported() {
         //nextPage()
     }
     const nextPage = () => {
-        if (supported === '' || supported < 0 || supported > 5) {
+        if (supported.supported === '' || supported.supported < 0 || supported.supported > 5 || supported.supported === null) {
             alert('please enter a valid input')
         }
         else {

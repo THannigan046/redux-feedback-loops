@@ -1,8 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { useState } from 'react'
+import { useState } from 'react' 
 import axios from 'axios'
+import { Button } from '@mui/material';
+import { ArrowForward } from '@mui/icons-material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 //redux toolkit
 
 
@@ -45,8 +48,8 @@ function ReviewFeedback() {
                 <li>comments: {store.commentReducer.comments}</li>
             </ul>
 
-            <button onClick={prevPage}>prev</button>
-            <button onClick={submitFeedback}>submit</button>
+            <Button startIcon={<ArrowBackIcon />} onClick={prevPage}>Prev</Button>
+            <Button onClick={submitFeedback}> Submit Feedback</Button>
         </>
     )
 }

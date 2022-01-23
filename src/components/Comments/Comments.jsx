@@ -2,6 +2,10 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
+import { Button } from '@mui/material';
+import { ArrowForward } from '@mui/icons-material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Input from '@mui/material/Input';
 function Comments(){
     const dispatch = useDispatch();
     let [commentToAdd, setCommentToAdd] = useState({ comments: '' })
@@ -33,7 +37,7 @@ function Comments(){
         <h3>page 4 of 4</h3>
         <h2>Any comments you would like to leave?</h2>
             <form onSubmit={addComments}>
-                <input
+                <Input
                     type='text'
                     
                     value={commentToAdd.comments}
@@ -41,8 +45,8 @@ function Comments(){
                 />
 
             </form>
-            <button onClick={prevPage}>Prev</button>
-            <button onClick={nextPage}>Next</button>
+            <Button startIcon={<ArrowBackIcon />} onClick={prevPage}>Prev</Button>
+            <Button endIcon={<ArrowForward />} onClick={nextPage}> Next</Button>
         
         
         </>

@@ -13,7 +13,7 @@ const feelingReducer = (state = '', action) =>{
         case 'ADD_FEELING':
         return state = action.payload 
         case 'CLEAR':
-        return state = null
+        return state = ''
     }
     return state;
 }
@@ -23,7 +23,7 @@ const understandingReducer = (state = '', action) => {
         case 'ADD_UNDERSTANDING':
             return state = action.payload
         case 'CLEAR':
-            return state = null
+            return state = ''
     }
     return state;
 }
@@ -33,7 +33,7 @@ const supportedReducer = (state = '', action) => {
         case 'ADD_SUPPORTED':
             return state = action.payload
         case 'CLEAR':
-            return state = null
+            return state = ''
     }
     return state;
 }

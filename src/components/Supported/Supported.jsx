@@ -2,7 +2,10 @@ import React from 'react';
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-
+import { Button } from '@mui/material';
+import { ArrowForward } from '@mui/icons-material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Input from '@mui/material/Input';
 function Supported() {
     const dispatch = useDispatch();
     const supported = useSelector(store => store.supportedReducer)
@@ -17,7 +20,7 @@ function Supported() {
         //nextPage()
     }
     const nextPage = () => {
-        if (supported.supported === '' || supported.supported < 0 || supported.supported > 5 || supported.supported === null) {
+        if (supported.supported === '' || supported.supported < 0 || supported.supported > 5 || supported.supported === null || supported === '') {
             alert('please enter a valid input')
         }
         else {
@@ -38,7 +41,7 @@ function Supported() {
             <h3>page 3 of 4</h3>
             <h2>How supported did you feel today?</h2>
             <form onSubmit={addSupported}>
-                <input
+                <Input
                     type='number'
                     placeholder='scale of 0 to 5'
                     value={supportedToAdd.supported}
@@ -46,8 +49,8 @@ function Supported() {
                 />
 
             </form>
-            <button onClick={prevPage}>Prev</button>
-            <button onClick={nextPage}>Next</button>
+            <Button startIcon={<ArrowBackIcon />} onClick={prevPage}>Prev</Button>
+            <Button endIcon={<ArrowForward />} onClick={nextPage}> Next</Button>
         </>
     )
 }

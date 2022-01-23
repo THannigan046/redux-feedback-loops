@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-
+import { Button } from '@mui/material';
 
 function Thanks(){
     const feedback = useSelector(store => store.feedbackReducer)
@@ -17,7 +17,7 @@ function Thanks(){
         <>
             <h2>Thank You!</h2>
             
-            <button onClick={leaveNewFeedback}>Leave new feedback</button>
+            <Button onClick={leaveNewFeedback}>Leave new feedback</Button>
         </>
     )
 }

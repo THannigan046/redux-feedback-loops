@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Button } from '@mui/material';
 import { ArrowForward } from '@mui/icons-material';
+import Input from '@mui/material/Input';
 function Feeling() {
 
     const dispatch = useDispatch();
@@ -13,7 +14,7 @@ function Feeling() {
 
     const nextPage = () => {
         //could've done min/max, but that made the input shrink
-        if (feeling.feeling === '' || feeling.feeling < 0 || feeling.feeling > 5 || feeling.feeling === null){
+        if (feeling.feeling === '' || feeling.feeling < 0 || feeling.feeling > 5 || feeling.feeling === null || feeling === ''){
             alert('please enter a valid input')
         }
         else {
@@ -41,7 +42,7 @@ function Feeling() {
         <h3>page 1 of 4</h3>
         <h2>How are you feeling today?</h2>
         <form onSubmit={handleSubmit}>
-        <input
+        <Input
         type='number'
         placeholder='scale of 0 to 5'
         onChange={handleFeelingChange}

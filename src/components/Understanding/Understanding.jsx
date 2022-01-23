@@ -2,6 +2,10 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { Button } from '@mui/material';
+import { ArrowForward } from '@mui/icons-material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Input from '@mui/material/Input';
 
 function Understanding() {
     const dispatch = useDispatch();
@@ -9,7 +13,7 @@ function Understanding() {
     const history = useHistory()
     const [understandingToAdd, setUnderstandingToAdd] = useState({understanding: ''})
     const nextPage = () => {
-        if (understanding.understanding === '' || understanding.understanding < 0 || understanding.understanding > 5 || understanding.understanding === null){
+        if (understanding === '' || understanding.understanding === "" || understanding.understanding < 0 || understanding.understanding > 5 || understanding.understanding === null){
             alert('please enter a valid input')
         }
         else {
@@ -42,15 +46,15 @@ function Understanding() {
             <h3>page 2 of 4</h3>
             <h2>How well are you understanding the content?</h2>
             <form onSubmit={handleSubmit}>
-            <input
+            <Input
                 type='number'
                 placeholder='scale of 0 to 5'
                 onChange={handleUnderstandingChange}
                 value={understandingToAdd.understanding}
             />
             </form>
-            <button onClick={prevPage}>Prev</button>
-            <button onClick={nextPage}>Next</button>
+            <Button startIcon={<ArrowBackIcon />} onClick={prevPage}>Prev</Button>
+            <Button endIcon={<ArrowForward />} onClick={nextPage}> Next</Button>
         </>
     )
 }
